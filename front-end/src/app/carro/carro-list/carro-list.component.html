@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="titulo">
+    <h3 class="page-title">{{ titulo }}</h3>
+  </div>
+</div>
+
+<button class="btn btn-primary m-3" routerLink="/carro/novo">
+  Cadastrar
+</button>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Fabricante</th>
+      <th>Modelo</th>
+      <th>Versão</th>
+      <th>Descrição</th>
+      <th>Cor</th>
+      <th>Valor</th>
+      <th>Nome da Garagem</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let carro of carros">
+      <td [routerLink]="['/carro/visualizar', carro.id]">
+        {{ carro.id }}</td>
+      <td>{{ carro.fabricante }}</td>
+      <td>{{ carro.modelo }}</td>
+      <td>{{ carro.versao }}</td>
+      <td>{{ carro.descricao }}</td>
+      <td>{{ carro.cor }}</td>
+      <td>{{ carro.valor }}</td>
+      <td>{{ carro.garagem.nome }}</td>
+      <td class="align">
+        <button class="btn btn-secondary" [routerLink]="['/carro/editar', carro.id]">
+          Editar
+        </button>
+
+        <button class="btn btn-danger" (click)="onDelete(carro.id)">
+          Deletar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="arrayVazio == true" class="col-md-12 text-center">
+  Não consta dados na tabela
+</div>
