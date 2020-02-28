@@ -1,0 +1,20 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Tipo Quadra</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quadra of quadras">
+        <td>{{ quadra.id }}</td>
+        <td>{{ quadra.nome }}</td>
+        <td>{{ quadra.preco }}</td>
+        <td>{{ quadra.tipoQuadra.nome }}</td> 
+        <td>teste</td>
+      </tr>
+    </tbody>
+  </table>

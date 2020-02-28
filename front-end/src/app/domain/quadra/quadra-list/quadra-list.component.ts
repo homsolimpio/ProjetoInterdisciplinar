@@ -9,15 +9,15 @@ import { Quadra } from "../quadra";
 })
 export class QuadraListComponent implements OnInit{
 
-    quadra: Quadra[];
+    quadras: Quadra[];
 
     constructor(private quadraService: QuadraService){ }
     
     ngOnInit(){
         
     this.quadraService.findAll().subscribe(quadras =>{
-    this.quadra = quadras;
-    console.log(this.quadra);
+    this.quadras = quadras;
+    console.log(this.quadras);
 })
 
     }
