@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Quadra } from "../quadra";
 import Validation from "src/app/core/util/validation";
+import { TipoQuadra } from "../tipo-quadra/tipo-quadra";
+import { TipoQuadraService } from "../tipo-quadra/tipo-quadra.service";
 
 
 @Component({
@@ -15,10 +17,12 @@ export class QuadraFormComponent implements OnInit{
 
     titulo: string;
     quadra: Quadra;
+    tipoQuadras: TipoQuadra[];
     quadraForm: FormGroup;
 
     constructor( 
         private quadraService: QuadraService,
+        private tipoQuadraService: TipoQuadraService,
         private builder: FormBuilder,
         private router: Router,
         private route: ActivatedRoute
@@ -34,16 +38,13 @@ export class QuadraFormComponent implements OnInit{
         //Titulo da pagina
         this.titulo = (this.quadra.id) ? 'Editar':'Cadastrar';
         
-
         this.quadraForm = this.builder.group({
             id:[],
             nome: [],
             preco: [],
-            tipoQuadra: this.builder.group({
-                id:[],
-                nome: ['']
-            })
-        },{});
+            tipoQuadra: ['']
+          
+          },{});
 
         if(this.quadra.id){
             this.quadraService.findById(this.quadra.id)
@@ -51,19 +52,22 @@ export class QuadraFormComponent implements OnInit{
               this.quadraForm.patchValue(quadra)
             });
           }
-          //Caso seja o formulario de visualizar
-          if(this.route.snapshot.url[0].path == 'visualizar'){
-            //Desabilitar o formulario
-            this.quadraForm.disable();
-      
-            //Alterar o titulo da pagina
-            this.titulo = 'Visualizar';
-          }
+        //Caso seja o formulario de visualizar
+        if(this.route.snapshot.url[0].path == 'visualizar'){
+          //Desabilitar o formulario
+          this.quadraForm.disable();
+    
+          //Alterar o titulo da pagina
+          this.titulo = 'Visualizar';
+        }
+
+        this.tipoQuadraService.findAll().subscribe(tipoQuadras =>{
+          this.tipoQuadras = tipoQuadras;
+        })
     }
     compareFn(c1, c2): boolean{
         return c1 && c2 ? c1.id === c2.id : c1 === c2;
     }
-
 
     //Salva dados
     onSave(quadra: Quadra){

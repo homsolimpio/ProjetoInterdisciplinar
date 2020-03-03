@@ -6,6 +6,7 @@ import { QuadraService } from "./quadra.service";
 import { QuadraListComponent } from "./quadra-list/quadra-list.component";
 import { QuadraFormComponent } from "./quadra-form/quadra-form.component";
 import { QuadraRoutingModule } from "./quadra-routing.module";
+import { TipoQuadraService } from "./tipo-quadra/tipo-quadra.service";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { QuadraRoutingModule } from "./quadra-routing.module";
         CoreModule,
         ReactiveFormsModule
     ],
-    providers: [QuadraService],
+    providers: [QuadraService,
+                TipoQuadraService],
     exports:[]
 })
 export class QuadraModule { }

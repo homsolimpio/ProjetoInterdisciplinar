@@ -25,15 +25,14 @@
                 </div>
             </div><!-- Fim da linha-->
 
-            <div class="row"formGroupName="tipoQuadra">
+            <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <!-- Coluna do campo Pais-->
                     <field label="Tipo de Quadra" required="true">
-                    <select class="form-control" formControlName="nome" [compareWith]="compareFn">
-                        <option value="" hidden>Selecione...</option>
-                        <option value="" disabled selected>Selecione...</option>
-                        <!-- <option *ngFor="let pais of paises" [ngValue]="pais">{{ pais.nome }} </option> -->
-                    </select>
+                        <select class="form-control" formControlName="tipoQuadra" [compareWith]="compareFn">
+                            <option value="" hidden>Selecione...</option>
+                            <option *ngFor="let tipoQuadra of tipoQuadras" [ngValue]="tipoQuadra">{{ tipoQuadra.nome }} </option>
+                        </select>
                     </field>
                 </div><!-- FIM Pais-->
 

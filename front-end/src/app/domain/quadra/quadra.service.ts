@@ -27,7 +27,7 @@ export class QuadraService{
     }
     save(quadra: Quadra): Observable<Quadra>{
         if(quadra.id){
-            return this.http.put<Quadra>(`${this.url}`, JSON.stringify(quadra), httpOptions);
+            return this.http.post<Quadra>(`${this.url}`, JSON.stringify(quadra), httpOptions);
         } else {
             return this.http.post<Quadra>(`${this.url}`, JSON.stringify(quadra),httpOptions);
         }
