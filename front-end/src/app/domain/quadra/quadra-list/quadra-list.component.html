@@ -16,7 +16,9 @@
         <td>{{ quadra.nome }}</td>
         <td>{{ quadra.preco }}</td>
         <td>{{ quadra.tipoQuadra.nome }}</td> 
-        <td>teste</td>
+        <td><button [routerLink]="['/quadra/editar', quadra.id]"type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button>
+          <button (click)="onDelete(quadra.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </button>
+        </td>
       </tr>
     </tbody>
   </table>

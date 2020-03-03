@@ -15,11 +15,19 @@ export class QuadraListComponent implements OnInit{
     
     ngOnInit(){
         
-    this.quadraService.findAll().subscribe(quadras =>{
-    this.quadras = quadras;
-    console.log(this.quadras);
-})
+        this.quadraService.findAll().subscribe(quadras =>{
+            this.quadras = quadras;
+            console.log(this.quadras);
+        })
 
     }
+    onDelete(id: number) {
+        this.quadraService.deleteById(id)
+          .subscribe(() => {
+            console.log("Carro deletado!!!");
+            //Remove carro da lista
+            this.quadras = this.quadras.filter(carro => carro.id !== id);
+          });
+      }
 
 }

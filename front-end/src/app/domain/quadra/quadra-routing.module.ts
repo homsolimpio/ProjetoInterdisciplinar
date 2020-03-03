@@ -5,7 +5,9 @@ import { QuadraFormComponent } from "./quadra-form/quadra-form.component";
 
 const routes: Routes = [
     {path: '', component: QuadraListComponent},
-    {path: 'cadastro', component: QuadraFormComponent}
+    {path: 'novo', component: QuadraFormComponent},
+    {path: 'editar/:id', component: QuadraFormComponent},
+    {path: 'visualizar/:id', component: QuadraFormComponent}
 ]
 
 @NgModule({
