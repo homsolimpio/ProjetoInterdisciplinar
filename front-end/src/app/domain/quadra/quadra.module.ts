@@ -7,23 +7,25 @@ import { QuadraListComponent } from "./quadra-list/quadra-list.component";
 import { QuadraFormComponent } from "./quadra-form/quadra-form.component";
 import { QuadraRoutingModule } from "./quadra-routing.module";
 import { TipoQuadraService } from "./tipo-quadra/tipo-quadra.service";
+import { SharedModule } from "src/app/shared/shared.module";
 
 
 @NgModule({
-    declarations:[
+    declarations: [
         QuadraListComponent,
         QuadraFormComponent
-    
+
     ],
     imports: [
         CommonModule,
         QuadraRoutingModule,
         FormsModule,
         CoreModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule
     ],
     providers: [QuadraService,
-                TipoQuadraService],
-    exports:[]
+        TipoQuadraService],
+    exports: []
 })
 export class QuadraModule { }

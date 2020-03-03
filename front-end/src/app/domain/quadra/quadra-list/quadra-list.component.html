@@ -1,24 +1,38 @@
-<button routerLink="cadastro" type="button" class="btn btn-primary">+ Cadastro</button>
+<div class="row">
+
+  <div class="titulo">
+    <h3 class="page-title">{{ titulo }}</h3>
+  </div>
+  <div class="ladoDireito">
+    <button routerLink="novo" type="button" class="btn btn-primary">+ Cadastro</button>
+  </div>
+</div>
+
 
 <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Tipo Quadra</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let quadra of quadras">
-        <td>{{ quadra.id }}</td>
-        <td>{{ quadra.nome }}</td>
-        <td>{{ quadra.preco }}</td>
-        <td>{{ quadra.tipoQuadra.nome }}</td> 
-        <td><button [routerLink]="['/quadra/editar', quadra.id]"type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button>
-          <button (click)="onDelete(quadra.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Tipo Quadra</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let quadra of quadras">
+      <td>{{ quadra.id }}</td>
+      <td>{{ quadra.nome }}</td>
+      <td>R$ {{ quadra.preco | number | valorMonetario}}</td>
+      <td>{{ quadra.tipoQuadra.nome }}</td>
+      <td><button [routerLink]="['/quadra/editar', quadra.id]" type="button" class="btn btn-primary"><i
+            class="fas fa-pen"></i></button>
+        <button (click)="onDelete(quadra.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="arrayVazio == true" class="col-md-12 text-center">
+  Não consta dados na tabela
+</div>

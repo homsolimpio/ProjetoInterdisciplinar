@@ -10,6 +10,8 @@ import { Quadra } from "../quadra";
 export class QuadraListComponent implements OnInit{
 
     quadras: Quadra[];
+    arrayVazio: boolean;
+    titulo: string = "Quadra";
 
     constructor(private quadraService: QuadraService){ }
     
@@ -17,7 +19,7 @@ export class QuadraListComponent implements OnInit{
         
         this.quadraService.findAll().subscribe(quadras =>{
             this.quadras = quadras;
-            console.log(this.quadras);
+            this.tabelaVazia(this.quadras.length);
         })
 
     }
@@ -27,7 +29,15 @@ export class QuadraListComponent implements OnInit{
             console.log("Carro deletado!!!");
             //Remove carro da lista
             this.quadras = this.quadras.filter(carro => carro.id !== id);
-          });
-      }
+            this.tabelaVazia(this.quadras.length);
+        });
+    }
+    tabelaVazia(arrayLength: number) {
+        if (arrayLength == 0) {
+          this.arrayVazio = true;
+        } else {
+          this.arrayVazio = false;
+        }
+    }
 
 }
