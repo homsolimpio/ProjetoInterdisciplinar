@@ -8,7 +8,7 @@ import { QuadraFormComponent } from "./quadra-form/quadra-form.component";
 import { QuadraRoutingModule } from "./quadra-routing.module";
 import { TipoQuadraService } from "./tipo-quadra/tipo-quadra.service";
 import { SharedModule } from "src/app/shared/shared.module";
-
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @NgModule({
     declarations: [
@@ -22,7 +22,8 @@ import { SharedModule } from "src/app/shared/shared.module";
         FormsModule,
         CoreModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        CurrencyMaskModule
     ],
     providers: [QuadraService,
         TipoQuadraService],

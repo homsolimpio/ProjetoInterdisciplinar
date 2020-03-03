@@ -1,9 +1,9 @@
 <div class="row">
     <div class="titulo">
-      <h3 class="page-title">{{ titulo }}</h3>
+        <h3 class="page-title">{{ titulo }}</h3>
     </div>
 </div>
-  
+
 <form [formGroup]="quadraForm">
 
     <div class="panel panel-default">
@@ -11,17 +11,21 @@
             <div class="row padding-top">
                 <!-- Cria uma Linha-->
                 <div class="col-md-6 col-lg-6">
-                <!-- Coluna do campo nome-->
-                <field label="Nome" required="true">
-                    <input placeholder="Digite..." type="text" class="form-control" formControlName="nome">
-                </field>
+                    <!-- Coluna do campo nome-->
+                    <field label="Nome" required="true">
+                        <input placeholder="Digite..." type="text" class="form-control" formControlName="nome">
+                    </field>
                 </div><!-- FIM DA COLUNA-->
 
                 <div class="col-md-6 col-lg-6">
-                <!-- Coluna do campo nome-->
-                <field label="Preço" required="true">
-                    <input placeholder="Digite..." type="text" class="form-control" formControlName="preco">
-                </field>
+                    <!-- Coluna do campo nome-->
+                    <field label="Preço" required="true">
+                        <input currencyMask [(ngModel)]="value" type="text" class="form-control"
+                            formControlName="preco" />
+
+
+                        <!-- <input placeholder="Digite..." type="text" class="form-control" formControlName="preco"> -->
+                    </field>
                 </div>
             </div><!-- Fim da linha-->
 
@@ -31,31 +35,32 @@
                     <field label="Tipo de Quadra" required="true">
                         <select class="form-control" formControlName="tipoQuadra" [compareWith]="compareFn">
                             <option value="" hidden>Selecione...</option>
-                            <option *ngFor="let tipoQuadra of tipoQuadras" [ngValue]="tipoQuadra">{{ tipoQuadra.nome }} </option>
+                            <option *ngFor="let tipoQuadra of tipoQuadras" [ngValue]="tipoQuadra">{{ tipoQuadra.nome }}
+                            </option>
                         </select>
                     </field>
                 </div><!-- FIM Pais-->
 
                 <div class="teste">
-                    <div >
-                      <button class="btn btn-success" (click)="onSave(quadraForm.value)" *ngIf="!quadraForm.disabled">
-                        Salvar
-                      </button>
-              
-                      <button class="btn btn-secondary ml-2" routerLink='/quadra'>
-                        Cancelar
-                      </button>
+                    <div>
+                        <button class="btn btn-success" (click)="onSave(quadraForm.value)" *ngIf="!quadraForm.disabled">
+                            Salvar
+                        </button>
+
+                        <button class="btn btn-secondary ml-2" routerLink='/quadra'>
+                            Cancelar
+                        </button>
                     </div>
                 </div>
 
             </div><!-- fim linha-->
-            
 
-        
+
+
         </div><!-- fim FormGroupName-->
 
-        </div><!-- fim panel-body-->
-      <!-- fim panel -->
+    </div><!-- fim panel-body-->
+    <!-- fim panel -->
 
 </form>
-   <!-- <pre>{{garagemForm.value | json}}</pre>  -->
+<!-- <pre>{{garagemForm.value | json}}</pre>  -->

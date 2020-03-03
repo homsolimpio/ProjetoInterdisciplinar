@@ -24,7 +24,7 @@ public class Quadra extends AbstractEntity {
     private String nome;
 
     @Column(name = "preco", nullable = false)
-    private int preco;
+    private double preco;
 
     @NotNull
     @ManyToOne
