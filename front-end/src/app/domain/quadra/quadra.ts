@@ -1,5 +1,5 @@
-import { TipoQuadra } from "../tipo-quadra/tipo-quadra";
-import { TestBed } from "@angular/core/testing";
+import { TipoQuadra } from "./tipo-quadra/tipo-quadra";
+
 
 export class Quadra {
     id: number;

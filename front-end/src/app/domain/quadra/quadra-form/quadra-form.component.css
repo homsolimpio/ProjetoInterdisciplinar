@@ -1,0 +1,14 @@
+.teste{
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+}
+.margin{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+form{
+    min-width: 300px;
+}

@@ -36,6 +36,4 @@ export class GaragemService {
   deleteById(id: number): Observable<any>{
     return this.http.delete(`${this.url}/${id}`);
   }
-
-
 }

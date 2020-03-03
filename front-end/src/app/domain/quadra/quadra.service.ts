@@ -22,5 +22,18 @@ export class QuadraService{
     findAll(): Observable<Quadra[]>{
         return this.http.get<Quadra[]>(`${this.url}`);
     }
+    findById(id: number): Observable<Quadra>{
+        return this.http.get<Quadra>(`${this.url}/${id}`);
+    }
+    save(quadra: Quadra): Observable<Quadra>{
+        if(quadra.id){
+            return this.http.put<Quadra>(`${this.url}`, JSON.stringify(quadra), httpOptions);
+        } else {
+            return this.http.post<Quadra>(`${this.url}`, JSON.stringify(quadra),httpOptions);
+        }
+    }
+    deleteById(id: number): Observable<any>{
+    return this.http.delete(`${this.url}/${id}`);
+    }
 
 }
