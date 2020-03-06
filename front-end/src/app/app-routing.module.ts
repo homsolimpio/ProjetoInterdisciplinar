@@ -9,6 +9,7 @@ const router: Routes =[
   {path: 'garagem', loadChildren: './garagem/garagem.module#GaragemModule'},
   {path: 'carro', loadChildren: './carro/carro.module#CarroModule'},
   {path: 'quadra', loadChildren: './domain/quadra/quadra.module#QuadraModule'},
+  {path: 'ginasio', loadChildren: './domain/ginasio/ginasio.module#GinasioModule'},
   {path: '', component: HomeComponent }
 ]
 

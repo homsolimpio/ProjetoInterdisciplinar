@@ -9,12 +9,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import br.com.unievangelica.ftt.domain.ginasio.Ginasio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.unievangelica.ftt.core.entity.AbstractEntity;
-import br.com.unievangelica.ftt.domain.garagem.Garagem;
 import br.com.unievangelica.ftt.domain.pais.Pais;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "endereco")
 public class Endereco extends AbstractEntity{
@@ -47,66 +51,6 @@ public class Endereco extends AbstractEntity{
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "endereco")
-	private Garagem garagem;
-	
+	private Ginasio ginasio;
 
-	public Garagem getGaragem() {
-		return garagem;
-	}
-
-	public void setGaragem(Garagem garagem) {
-		this.garagem = garagem;
-	}
-
-	public String getLogradouro() {
-		return logradouro;
-	}
-
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public Pais getPais() {
-		return pais;
-	}
-
-	public void setPais(Pais pais) {
-		this.pais = pais;
-	}
-	
-	
-	
-	
 }

@@ -20,7 +20,7 @@
                 <div class="col-md-6 col-lg-6">
                     <!-- Coluna do campo nome-->
                     <field label="Preço" required="true">
-                        <input currencyMask [(ngModel)]="value" type="text" class="form-control"
+                        <input currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" type="text" class="form-control"
                             formControlName="preco" />
 
 

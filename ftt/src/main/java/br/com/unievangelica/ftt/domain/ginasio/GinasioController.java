@@ -1,11 +1,11 @@
-package br.com.unievangelica.ftt.domain.quadra;
+package br.com.unievangelica.ftt.domain.ginasio;
 
 import br.com.unievangelica.ftt.core.controller.AbstractController;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
-@RequestMapping("/api/quadra")
-public class QuadraController extends AbstractController<Quadra> {
+@RequestMapping("api/ginasio")
+public class GinasioController  extends AbstractController<Ginasio> {
 }
