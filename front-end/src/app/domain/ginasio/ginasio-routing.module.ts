@@ -1,8 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { GinasioListComponent } from "./ginasio-list/ginasio-list.component";
 
 const routes: Routes = [
-   // {path: '', component: QuadraListComponent},
+    {path: '', component: GinasioListComponent},
     //{path: 'novo', component: QuadraFormComponent},
     //{path: 'editar/:id', component: QuadraFormComponent},
     //{path: 'visualizar/:id', component: QuadraFormComponent}

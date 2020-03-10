@@ -13,7 +13,6 @@ import br.com.unievangelica.ftt.domain.ginasio.Ginasio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.unievangelica.ftt.core.entity.AbstractEntity;
-import br.com.unievangelica.ftt.domain.pais.Pais;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,21 +35,13 @@ public class Endereco extends AbstractEntity{
 	@Column(name = "bairro", length = 30)
 	private String bairro;
 	
-	@NotEmpty
-	@Column(name = "cidade", length = 50)
-	private String cidade;
-	
-	@NotEmpty
-	@Column(name = "estado", length = 30)
-	private String estado;
-	
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "pais_id", referencedColumnName = "id")
-	private Pais pais;
-	
 	@JsonIgnore
 	@OneToOne(mappedBy = "endereco")
 	private Ginasio ginasio;
+
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "cidade_id", referencedColumnName = "id")
+	private Ginasio cidade;
 
 }
