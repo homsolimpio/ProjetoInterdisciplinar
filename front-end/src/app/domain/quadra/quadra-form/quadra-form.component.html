@@ -1,66 +1,99 @@
 <div class="row">
-    <div class="titulo">
-        <h3 class="page-title">{{ titulo }}</h3>
-    </div>
+  <div class="titulo">
+    <h3 class="page-title">{{ titulo }}</h3>
+  </div>
 </div>
 
 <form [formGroup]="quadraForm">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row padding-top">
+        <!-- Cria uma Linha-->
+        <div class="col-md-6 col-lg-6">
+          <!-- Coluna do campo nome-->
+          <field label="Nome" required="true">
+            <input
+              placeholder="Digite..."
+              type="text"
+              class="form-control"
+              formControlName="nome"
+            />
+          </field>
+        </div>
+        <!-- FIM DA COLUNA-->
 
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="row padding-top">
-                <!-- Cria uma Linha-->
-                <div class="col-md-6 col-lg-6">
-                    <!-- Coluna do campo nome-->
-                    <field label="Nome" required="true">
-                        <input placeholder="Digite..." type="text" class="form-control" formControlName="nome">
-                    </field>
-                </div><!-- FIM DA COLUNA-->
+        <div class="col-md-6 col-lg-6">
+          <!-- Coluna do campo nome-->
+          <field label="Preço" required="true">
+            <input
+              currencyMask
+              [(ngModel)]="value"
+              [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+              type="text"
+              class="form-control"
+              formControlName="preco"
+            />
 
-                <div class="col-md-6 col-lg-6">
-                    <!-- Coluna do campo nome-->
-                    <field label="Preço" required="true">
-                        <input currencyMask [(ngModel)]="value" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" type="text" class="form-control"
-                            formControlName="preco" />
+            <!-- <input placeholder="Digite..." type="text" class="form-control" formControlName="preco"> -->
+          </field>
+        </div>
+      </div>
+      <!-- Fim da linha-->
 
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <field label="Tipo de Quadra" required="true">
+            <select
+              class="form-control"
+              formControlName="tipoQuadra"
+              [compareWith]="compareFn"
+            >
+              <option value="" hidden>Selecione...</option>
+              <option
+                *ngFor="let tipoQuadra of tipoQuadras"
+                [ngValue]="tipoQuadra"
+                >{{ tipoQuadra.nome }}
+              </option>
+            </select>
+          </field>
+        </div>
 
-                        <!-- <input placeholder="Digite..." type="text" class="form-control" formControlName="preco"> -->
-                    </field>
-                </div>
-            </div><!-- Fim da linha-->
+        <div class="col-md-6 col-lg-6">
+          <field label="Ginasio" required="true">
+            <select
+              class="form-control"
+              formControlName="ginasio"
+              [compareWith]="compareFn"
+            >
+              <option value="" hidden>Selecione...</option>
+              <option *ngFor="let ginasio of ginasios" [ngValue]="ginasio"
+                >{{ ginasio.nome }}
+              </option>
+            </select>
+          </field>
+        </div>
 
-            <div class="row">
-                <div class="col-md-6 col-lg-6">
-                    <!-- Coluna do campo Pais-->
-                    <field label="Tipo de Quadra" required="true">
-                        <select class="form-control" formControlName="tipoQuadra" [compareWith]="compareFn">
-                            <option value="" hidden>Selecione...</option>
-                            <option *ngFor="let tipoQuadra of tipoQuadras" [ngValue]="tipoQuadra">{{ tipoQuadra.nome }}
-                            </option>
-                        </select>
-                    </field>
-                </div><!-- FIM Pais-->
+        <div class="teste">
+          <div>
+            <button
+              class="btn btn-success"
+              (click)="onSave(quadraForm.value)"
+              *ngIf="!quadraForm.disabled"
+            >
+              Salvar
+            </button>
 
-                <div class="teste">
-                    <div>
-                        <button class="btn btn-success" (click)="onSave(quadraForm.value)" *ngIf="!quadraForm.disabled">
-                            Salvar
-                        </button>
-
-                        <button class="btn btn-secondary ml-2" routerLink='/quadra'>
-                            Cancelar
-                        </button>
-                    </div>
-                </div>
-
-            </div><!-- fim linha-->
-
-
-
-        </div><!-- fim FormGroupName-->
-
-    </div><!-- fim panel-body-->
-    <!-- fim panel -->
-
+            <button class="btn btn-secondary ml-2" routerLink="/quadra">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- fim linha-->
+    </div>
+    <!-- fim FormGroupName-->
+  </div>
+  <!-- fim panel-body-->
+  <!-- fim panel -->
 </form>
 <!-- <pre>{{garagemForm.value | json}}</pre>  -->

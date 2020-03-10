@@ -9,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,5 +29,5 @@ public class Cidade extends AbstractEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "cidade")
-    private List<Endereco> endereco;
+    private Set<Endereco> endereco;
 }

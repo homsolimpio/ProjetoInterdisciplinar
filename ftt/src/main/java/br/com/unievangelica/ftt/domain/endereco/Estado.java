@@ -32,5 +32,11 @@ public class Estado extends AbstractEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "estado")
-    private List<Cidade> cidade;
+    private Set<Cidade> cidade;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "estado")
+    private Set<Endereco> endereco;
+
+
 }

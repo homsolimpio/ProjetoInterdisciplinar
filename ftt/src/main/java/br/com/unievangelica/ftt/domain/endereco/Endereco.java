@@ -42,6 +42,11 @@ public class Endereco extends AbstractEntity{
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "cidade_id", referencedColumnName = "id")
-	private Ginasio cidade;
+	private Cidade cidade;
+
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "estado_id", referencedColumnName = "id")
+	private Estado estado;
 
 }
