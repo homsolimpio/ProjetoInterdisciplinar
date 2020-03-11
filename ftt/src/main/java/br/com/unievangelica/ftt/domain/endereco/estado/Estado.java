@@ -1,10 +1,11 @@
-package br.com.unievangelica.ftt.domain.endereco;
+package br.com.unievangelica.ftt.domain.endereco.estado;
 
 import br.com.unievangelica.ftt.core.entity.AbstractEntity;
+import br.com.unievangelica.ftt.domain.endereco.Endereco;
+import br.com.unievangelica.ftt.domain.endereco.cidade.Cidade;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,11 +33,11 @@ public class Estado extends AbstractEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "estado")
-    private Set<Cidade> cidade;
+    private List<Cidade> cidade;
 
     @JsonIgnore
     @OneToMany(mappedBy = "estado")
-    private Set<Endereco> endereco;
+    private List<Endereco> endereco;
 
 
 }

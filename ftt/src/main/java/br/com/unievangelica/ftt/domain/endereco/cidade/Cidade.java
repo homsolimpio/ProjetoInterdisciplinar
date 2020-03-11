@@ -1,7 +1,9 @@
-package br.com.unievangelica.ftt.domain.endereco;
+package br.com.unievangelica.ftt.domain.endereco.cidade;
 
 
 import br.com.unievangelica.ftt.core.entity.AbstractEntity;
+import br.com.unievangelica.ftt.domain.endereco.Endereco;
+import br.com.unievangelica.ftt.domain.endereco.estado.Estado;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +11,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -29,5 +30,5 @@ public class Cidade extends AbstractEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy = "cidade")
-    private Set<Endereco> endereco;
+    private List<Endereco> endereco;
 }

@@ -6,20 +6,21 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { GinasioService } from "./ginasio.service";
 import { GinasioListComponent } from "./ginasio-list/ginasio-list.component";
 import { GinasioRoutingModule } from "./ginasio-routing.module";
+import { CidadeService } from "../endereco/cidade/cidade.service";
+import { EstadoService } from "../endereco/estado/estado.service";
+import { GinasioFormComponent } from "./ginasio-form/ginasio-form.component";
 
 @NgModule({
-    declarations: [
-        GinasioListComponent
-    ],
-    imports: [
-        CommonModule,
-        GinasioRoutingModule,
-        FormsModule,
-        CoreModule,
-        ReactiveFormsModule,
-        SharedModule
-    ],
-    providers: [GinasioService],
-    exports: []
+  declarations: [GinasioListComponent, GinasioFormComponent],
+  imports: [
+    CommonModule,
+    GinasioRoutingModule,
+    FormsModule,
+    CoreModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
+  providers: [GinasioService, CidadeService, EstadoService],
+  exports: []
 })
-export class GinasioModule { }
+export class GinasioModule {}

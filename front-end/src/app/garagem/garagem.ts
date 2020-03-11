@@ -1,8 +1,7 @@
-import { Endereco } from "src/app/endereco/endereco";
+import { Endereco } from "../domain/endereco/endereco";
 
 export class Garagem {
-    
-    id: number;
-    nome: string;
-    endereco: Endereco;
+  id: number;
+  nome: string;
+  endereco: Endereco;
 }

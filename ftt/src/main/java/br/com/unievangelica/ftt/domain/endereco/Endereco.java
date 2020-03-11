@@ -9,6 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import br.com.unievangelica.ftt.domain.endereco.cidade.Cidade;
+import br.com.unievangelica.ftt.domain.endereco.estado.Estado;
 import br.com.unievangelica.ftt.domain.ginasio.Ginasio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
