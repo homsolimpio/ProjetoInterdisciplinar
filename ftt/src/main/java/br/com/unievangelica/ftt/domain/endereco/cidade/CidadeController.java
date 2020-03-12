@@ -17,9 +17,8 @@ public class CidadeController extends AbstractController<Cidade> {
     @Autowired
     CidadeService cidadeService;
 
-    @GetMapping("/teste/{estadoId}")
+    @GetMapping("/find-cidade/{estadoId}")
     public ResponseEntity<?> findcidadeByEstadoId(@PathVariable long estadoId){
-        System.out.println(estadoId);
         return jsonResponse(cidadeService.findCidadeByEstadoId(estadoId));
     }
 

@@ -1,1 +1,132 @@
-<h1>TEste</h1>
+<div class="row">
+  <div class="titulo">
+    <h3 class="page-title">{{ titulo }}</h3>
+  </div>
+</div>
+
+<form [formGroup]="ginasioForm">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row padding-top">
+        <!-- Cria uma Linha-->
+        <div class="col-md-6 col-lg-4">
+          <!-- Coluna do campo nome-->
+          <field label="Nome" required="true">
+            <input
+              placeholder="Digite..."
+              type="text"
+              class="form-control"
+              formControlName="nome"
+            />
+          </field>
+        </div>
+        <!-- FIM DA COLUNA-->
+      </div>
+      <!-- Fim da linha-->
+
+      <div formGroupName="endereco">
+        <div class="row">
+          <!--linha-->
+          <div class="col-md-6 col-lg-4">
+            <!-- Coluna do campo Logradouro-->
+            <field label="Logradouro" required="true">
+              <input
+                placeholder="Digite..."
+                type="text"
+                class="form-control"
+                formControlName="logradouro"
+              />
+            </field>
+          </div>
+          <!-- FIM Logradouro-->
+
+          <div class="col-md-6 col-lg-4">
+            <!-- Coluna do campo Complemento-->
+            <field label="Complemento" required="true">
+              <input
+                placeholder="Digite..."
+                type="text"
+                class="form-control"
+                formControlName="complemento"
+              />
+            </field>
+          </div>
+          <!-- FIM Complemento-->
+
+          <div class="col-md-6 col-lg-4">
+            <!-- Coluna do campo Bairro-->
+            <field label="Bairro" required="true">
+              <input
+                placeholder="Digite..."
+                type="text"
+                class="form-control"
+                formControlName="bairro"
+              />
+            </field>
+          </div>
+          <!-- FIM Bairro-->
+        </div>
+
+        <div class="row">
+          <!--linha-->
+          <div class="col-md-6 col-lg-4">
+            <!-- Coluna do campo Estado-->
+            <field label="Estado" required="true">
+              <select
+                class="form-control"
+                formControlName="estado"
+                [compareWith]="compareFn"
+                (click)="
+                  findCidadeByEstadoId(
+                    ginasioForm.get('endereco').get('estado').value
+                  )
+                "
+              >
+                <option value="" disabled selected>Selecione...</option>
+                <option *ngFor="let estado of estados" [ngValue]="estado.id"
+                  >{{ estado.nome }}
+                </option>
+              </select>
+            </field>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <!-- Coluna do campo Cidade-->
+            <field label="Cidade" required="true">
+              <select
+                class="form-control"
+                formControlName="cidade"
+                [compareWith]="compareFn"
+              >
+                <option value="" disabled selected>Selecione...</option>
+                <option *ngFor="let cidade of cidades" [ngValue]="cidade.id"
+                  >{{ cidade.nome }}
+                </option>
+              </select>
+            </field>
+          </div>
+        </div>
+        <!-- fim linha-->
+      </div>
+      <!-- fim FormGroupName-->
+    </div>
+    <!-- fim panel-body-->
+    <div class="align panel-footer">
+      <div class="margin-button">
+        <button
+          class="btn btn-success"
+          (click)="onSave(garagemForm.value)"
+          *ngIf="!ginasioForm.disabled"
+        >
+          Salvar
+        </button>
+
+        <button class="btn btn-secondary ml-2" routerLink="/ginasio">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- fim panel-->
+</form>
+<!--    <pre>{{garagemForm.value | json}}</pre>     -->

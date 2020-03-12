@@ -13,6 +13,6 @@ export class CidadeService {
   constructor(private http: HttpClient) {}
 
   findCidadeByEstadoId(estadoId: number): Observable<Cidade[]> {
-    return this.http.get<Cidade[]>(`${this.url}/teste/${estadoId}`);
+    return this.http.get<Cidade[]>(`${this.url}/find-cidade/${estadoId}`);
   }
 }

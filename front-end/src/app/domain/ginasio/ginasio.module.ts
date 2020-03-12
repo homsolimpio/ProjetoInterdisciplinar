@@ -17,8 +17,7 @@ import { GinasioFormComponent } from "./ginasio-form/ginasio-form.component";
     GinasioRoutingModule,
     FormsModule,
     CoreModule,
-    ReactiveFormsModule,
-    SharedModule
+    ReactiveFormsModule
   ],
   providers: [GinasioService, CidadeService, EstadoService],
   exports: []
