@@ -115,8 +115,9 @@
       <div class="margin-button">
         <button
           class="btn btn-success"
-          (click)="onSave(garagemForm.value)"
+          (click)="onSave(ginasioForm.value)"
           *ngIf="!ginasioForm.disabled"
+          [attr.disabled]="ginasioForm.invalid ? '' : null"
         >
           Salvar
         </button>
