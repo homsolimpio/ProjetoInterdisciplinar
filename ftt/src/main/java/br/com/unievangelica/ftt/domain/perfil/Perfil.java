@@ -22,11 +22,8 @@ public class Perfil extends AbstractEntity implements GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 
-    @NotEmpty
-    @NotBlank
     @Column(name = "nome", length = 80, nullable = false)
     private String nome;
-
 
     @Override
     public String getAuthority() {

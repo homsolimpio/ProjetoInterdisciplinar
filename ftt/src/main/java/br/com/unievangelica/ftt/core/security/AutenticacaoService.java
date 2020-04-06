@@ -11,19 +11,19 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AutenticacaoService  implements UserDetailsService{
+public class AutenticacaoService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
-        Optional<Usuario> usuario  = usuarioRepository.findByEmail(s);
-
-        if(usuario.isPresent()){
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<Usuario> usuario = repository.findByEmail(username);
+        if (usuario.isPresent()) {
             return usuario.get();
         }
-        throw new UsernameNotFoundException("Dados invalido!");
+
+        throw new UsernameNotFoundException("Dados inválidos!");
     }
+
 }
