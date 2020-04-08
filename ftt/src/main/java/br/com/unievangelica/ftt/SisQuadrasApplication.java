@@ -15,7 +15,7 @@ public class SisQuadrasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SisQuadrasApplication.class, args);
 
-		System.out.println("Testando");
+
 	}
 
 
