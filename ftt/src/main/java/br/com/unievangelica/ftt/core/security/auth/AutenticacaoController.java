@@ -1,6 +1,5 @@
 package br.com.unievangelica.ftt.core.security.auth;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
