@@ -76,14 +76,14 @@
                 class="form-control"
                 formControlName="estado"
                 [compareWith]="compareFn"
-                (click)="
+                (change)="
                   findCidadeByEstadoId(
                     ginasioForm.get('endereco').get('estado').value
                   )
                 "
               >
                 <option value="" disabled selected>Selecione...</option>
-                <option *ngFor="let estado of estados" [ngValue]="estado.id"
+                <option *ngFor="let estado of estados" [ngValue]="estado"
                   >{{ estado.nome }}
                 </option>
               </select>
@@ -99,7 +99,7 @@
                 [compareWith]="compareFn"
               >
                 <option value="" disabled selected>Selecione...</option>
-                <option *ngFor="let cidade of cidades" [ngValue]="cidade.id"
+                <option *ngFor="let cidade of cidades" [ngValue]="cidade"
                   >{{ cidade.nome }}
                 </option>
               </select>
@@ -130,4 +130,4 @@
   </div>
   <!-- fim panel-->
 </form>
-<!--    <pre>{{garagemForm.value | json}}</pre>     -->
+   <pre>{{ginasioForm.value | json}}</pre>    

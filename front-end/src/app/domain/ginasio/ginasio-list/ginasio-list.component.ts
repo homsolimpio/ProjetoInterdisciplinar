@@ -9,7 +9,7 @@ import { Ginasio } from "../ginasio";
 })
 export class GinasioListComponent implements OnInit{
 
-    ginasio: Ginasio[];
+    ginasios: Ginasio[];
     arrayVazio: boolean;
     titulo: string = "Ginasio";
 
@@ -17,10 +17,9 @@ export class GinasioListComponent implements OnInit{
 
     ngOnInit(){
         this.ginasioService.findAll().subscribe(ginasios =>{
-            this.ginasio = ginasios;
-            console.log(this.ginasio);
-            this.tabelaVazia(this.ginasio.length);
-            
+            this.ginasios = ginasios;
+            console.log(this.ginasios);
+            this.tabelaVazia(this.ginasios.length);
         })
     }
 
@@ -28,8 +27,8 @@ export class GinasioListComponent implements OnInit{
         this.ginasioService.deleteById(id)
           .subscribe(() => {
             //Remove carro da lista
-            this.ginasio = this.ginasio.filter(carro => carro.id !== id);
-            this.tabelaVazia(this.ginasio.length);
+            this.ginasios = this.ginasios.filter(carro => carro.id !== id);
+            this.tabelaVazia(this.ginasios.length);
         });
     }
     tabelaVazia(arrayLength: number) {

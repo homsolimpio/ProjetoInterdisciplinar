@@ -7,6 +7,7 @@ import { CidadeService } from "../../endereco/cidade/cidade.service";
 import { Cidade } from "../../endereco/cidade/cidade";
 import { Ginasio } from "../ginasio";
 import { Estado } from "../../endereco/estado/estado";
+import Validation from "src/app/core/util/validation";
 
 @Component({
   selector: "app-ginasio-form",
@@ -51,6 +52,12 @@ export class GinasioFormComponent implements OnInit {
       {}
     );
 
+    if (this.ginasio.id) {
+      this.ginasioService.findById(this.ginasio.id).subscribe(ginasio => {
+        this.ginasioForm.patchValue(ginasio);
+      });
+    }
+
     this.estadoService.findAll().subscribe(estados => {
       this.estados = estados;
     });
@@ -60,11 +67,21 @@ export class GinasioFormComponent implements OnInit {
     return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 
-  findCidadeByEstadoId(estadoId: number) {
-    console.log(estadoId);
-    this.cidadeService.findCidadeByEstadoId(estadoId).subscribe(cidades => {
+  findCidadeByEstadoId(estado: Estado) {
+    this.cidadeService.findCidadeByEstadoId(estado.id).subscribe(cidades => {
       this.cidades = cidades;
-      console.log(this.cidades);
     });
+  }
+
+  onSave(ginasio: Ginasio) {
+    if (this.ginasioForm.invalid) {
+      //Valida todos os campos do formulario
+      Validation.allFormFields(this.ginasioForm);
+    } else {
+      this.ginasioService.save(ginasio).subscribe(ginasio => {
+        //Redireciona para a lista de quadra
+        this.router.navigate(["/ginasio"]);
+      });
+    }
   }
 }

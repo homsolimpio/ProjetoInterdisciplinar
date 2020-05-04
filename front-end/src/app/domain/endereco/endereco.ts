@@ -6,6 +6,6 @@ export class Endereco {
   logradouro: string;
   complemento: string;
   bairro: string;
-  cidade: Cidade;
   estado: Estado;
+  cidade: Cidade;
 }
