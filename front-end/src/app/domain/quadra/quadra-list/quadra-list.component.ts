@@ -26,7 +26,7 @@ export class QuadraListComponent implements OnInit{
     onDelete(id: number) {
         this.quadraService.deleteById(id)
           .subscribe(() => {
-            this.quadras = this.quadras.filter(carro => carro.id !== id);
+            this.quadras = this.quadras.filter(quadra => quadra.id !== id);
             this.tabelaVazia(this.quadras.length);
         });
     }

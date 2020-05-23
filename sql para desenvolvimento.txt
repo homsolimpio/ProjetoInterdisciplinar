@@ -28,3 +28,12 @@ insert into tipo_quadra(nome) values('Basquete'),
 ('Squash'),
 ('Tênis'),
 ('Vôlei');
+
+insert into endereco(id,bairro,complemento,logradouro,cidade_id,estado_id)
+values(1,'Centro','N/D','N/D',1,8);
+
+insert into ginasio(id,nome, endereco_id)
+VALUES (1,'Alfa',1);
+
+insert into quadra(id, nome, preco, ginasio_id, tipo_quadra_id)
+values (1, 'Principal',100.00, 1, 40);

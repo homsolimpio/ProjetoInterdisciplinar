@@ -20,7 +20,7 @@ export class QuadraFormComponent implements OnInit {
   ginasios: Ginasio[];
   tipoQuadras: TipoQuadra[];
   quadraForm: FormGroup;
-
+  
   constructor(
     private quadraService: QuadraService,
     private ginasioService: GinasioService,

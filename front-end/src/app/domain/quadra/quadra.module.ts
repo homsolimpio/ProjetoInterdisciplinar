@@ -23,7 +23,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
         CoreModule,
         ReactiveFormsModule,
         SharedModule,
-        CurrencyMaskModule
+        CurrencyMaskModule,
     ],
     providers: [QuadraService,
         TipoQuadraService],
