@@ -7,19 +7,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './home/login/signin/signin.component';
+import { SignupComponent } from './domain/login/signup/signup.component';
+import { SigninComponent } from './domain/login/signin/signin.component';
+import { LoginModule } from './domain/login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SigninComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoginModule
     //NgbModule
   ],
   providers: [],

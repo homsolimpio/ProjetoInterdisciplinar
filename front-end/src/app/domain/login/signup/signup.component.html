@@ -1,0 +1,45 @@
+<form [formGroup]="signupForm" >
+    <div class="form-group">
+        <label>Nome Completo</label>
+        <input 
+            formControlName="nome" 
+            class="form-control" 
+            placeholder="nome" 
+            >
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input 
+            formControlName="email" 
+            class="form-control" 
+            placeholder="email"
+            >
+    </div>
+    <div class="form-group">
+        <label>Senha</label>
+        <input 
+            formControlName="senha" 
+            class="form-control" 
+            placeholder="senha"
+            type="password" 
+            >
+    </div>
+    <div class="form-group">
+        <label>Confirme sua senha</label>
+        <input 
+            type="password"
+            (input)="conferirSenha($event.target.value)"
+            class="form-control" 
+            placeholder="confirme sua senha" 
+            >
+    </div>
+
+    <div>
+        <button
+        class="btn btn-success col-sm-12"
+        [disabled]="boolConfirmarSenha"
+        >
+        Confirmar Cadastro
+        </button>
+    </div>
+</form>

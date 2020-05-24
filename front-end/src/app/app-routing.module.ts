@@ -7,6 +7,7 @@ import { HomeComponent } from 'src/app/home/home.component';
 const router: Routes =[
   {path: 'quadra', loadChildren: './domain/quadra/quadra.module#QuadraModule'},
   {path: 'ginasio', loadChildren: './domain/ginasio/ginasio.module#GinasioModule'},
+  {path: 'login', loadChildren: './domain/login/login.module#LoginModule'},
   {path: '', component: HomeComponent }
 ]
 
