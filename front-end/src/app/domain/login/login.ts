@@ -1,4 +1,6 @@
-export class login {
+export class UserCliente {
+    id: number;
+    nome: string;
     email: string;
     senha: string;
 }

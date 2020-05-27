@@ -2,10 +2,13 @@ import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { PlatformDetectorService } from "src/app/core/plataform-detector/plataform-detector.service";
+import { LoginService } from "../login.service";
+import { LoginModule } from "../login.module";
 
 @Component({
     selector:'app-signin-component',
-    templateUrl:'signin.component.html'
+    templateUrl:'signin.component.html',
+    styleUrls: ["./signin.component.css"]
 })
 export class SigninComponent implements OnInit{
 
@@ -16,7 +19,7 @@ export class SigninComponent implements OnInit{
         private formBuilder: FormBuilder,
        // private authService: AuthService,
         private router: Router,
-        private platformDetectorService: PlatformDetectorService) { }
+        private loginService: LoginService) { }
 
     ngOnInit(){
         this.signinForm = this.formBuilder.group({
@@ -31,6 +34,22 @@ export class SigninComponent implements OnInit{
                 ]
             ]
         })
+    }
+
+    login(){
+        var email = this.signinForm.get('email').value;
+        var senha = this.signinForm.get('senha').value;
+
+        this.loginService.findUserClienteByEmailAndSenha(email, senha)
+        .subscribe(bool => {
+            console.log("boolean " + bool);
+            
+            if(bool){
+                this.router.navigate(["/ginasio"]);
+            }else{
+                console.log("ERROR");                
+            }
+        });
     }
     
 }
