@@ -9,11 +9,13 @@ import { QuadraRoutingModule } from "./quadra-routing.module";
 import { TipoQuadraService } from "./tipo-quadra/tipo-quadra.service";
 import { SharedModule } from "src/app/shared/shared.module";
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { QuadraListUserComponent } from "./quadra-list-user/quadra-list-user.component";
 
 @NgModule({
     declarations: [
         QuadraListComponent,
-        QuadraFormComponent
+        QuadraFormComponent,
+        QuadraListUserComponent
 
     ],
     imports: [

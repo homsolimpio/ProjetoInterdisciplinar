@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "select * from user_cliente as uc\n" +
-            "where CAST(uc.email AS VARCHAR(100)) LIKE '%' || :userClienteEmail || '%' \n" +
-            "and CAST(uc.senha AS VARCHAR(100)) LIKE '%' || :userClienteSenha || '%' ",
+            "where CAST(uc.email AS VARCHAR(100)) LIKE :userClienteEmail \n" +
+            "and CAST(uc.senha AS VARCHAR(100)) LIKE :userClienteSenha",
             nativeQuery = true)
     public User autenticacaoUser(@Param("userClienteEmail") String userClienteEmail,
                                   @Param("userClienteSenha") String userClienteSenha);

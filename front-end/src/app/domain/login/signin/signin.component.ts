@@ -1,9 +1,8 @@
-import { Component, ViewChild, ElementRef, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { PlatformDetectorService } from "src/app/core/plataform-detector/plataform-detector.service";
 import { LoginService } from "../login.service";
-import { LoginModule } from "../login.module";
+
 
 @Component({
     selector:'app-signin-component',
@@ -45,7 +44,7 @@ export class SigninComponent implements OnInit{
             console.log("boolean " + bool);
             
             if(bool){
-                this.router.navigate(["/ginasio"]);
+                this.router.navigate(["/quadra/listar-quadras"]);
             }else{
                 console.log("ERROR");                
             }
