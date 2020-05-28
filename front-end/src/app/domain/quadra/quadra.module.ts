@@ -10,6 +10,7 @@ import { TipoQuadraService } from "./tipo-quadra/tipo-quadra.service";
 import { SharedModule } from "src/app/shared/shared.module";
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { QuadraListUserComponent } from "./quadra-list-user/quadra-list-user.component";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { QuadraListUserComponent } from "./quadra-list-user/quadra-list-user.com
         ReactiveFormsModule,
         SharedModule,
         CurrencyMaskModule,
+        Ng2SearchPipeModule
     ],
     providers: [QuadraService,
         TipoQuadraService],

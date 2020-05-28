@@ -4,3 +4,14 @@
     border-radius: 20px;
    
 }
+nav{
+    margin-top: 3%;
+    margin-left: auto;
+}
+.col-10{
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+}
+.card{
+    width: 350px;
+}
