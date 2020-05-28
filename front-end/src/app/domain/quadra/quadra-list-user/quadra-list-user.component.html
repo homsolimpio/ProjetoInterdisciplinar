@@ -1,23 +1,35 @@
 <div class="borda">
   <nav class="navbar col-3">
-    <input placeholder="Pesquisa" class="form-control" type="text" name="search" [(ngModel)]="filter">
+    <input
+      placeholder="Pesquisa"
+      class="form-control"
+      type="text"
+      name="search"
+      [(ngModel)]="filter"
+    />
   </nav>
-  <div class="col-10">
-    <div *ngFor="let quadra of quadras | filter:filter; let i = index" class="card col-3">
-      <div class="card-header">
-        {{quadra.tipoQuadra.nome}}
-      </div>
-      <div class="card-body">
-        <blockquote>
-          <p>Ginasio {{ quadra.ginasio.nome }}</p>
-          <p>Cidade {{ quadra.ginasio.endereco.cidade.nome }}</p>
-          <p>Bairro: {{ quadra.ginasio.endereco.bairro }}</p>
-          <p>Valor Hora: ${{ quadra.preco | number | valorMonetario }}</p>
-          <footer class="blockquote-footer">
-              teste 
-          </footer>
-        </blockquote>
-      </div>
-    </div>
+  <div class="container-card">
+    <ul>
+      <li
+        class="card-custom"
+        *ngFor="let quadra of quadras | filter: filter; let i = index"
+      >
+        <div class="card-header-custom">
+          {{ quadra.tipoQuadra.nome }}
+        </div>
+
+        <div class="card-body-custom">
+          <blockquote>
+            <p>Ginasio {{ quadra.ginasio.nome }}</p>
+            <p>Cidade {{ quadra.ginasio.endereco.cidade.nome }}</p>
+            <p>Bairro: {{ quadra.ginasio.endereco.bairro }}</p>
+            <p>Valor Hora: ${{ quadra.preco | number | valorMonetario }}</p>
+            <footer class="blockquote-footer--custom">
+              teste
+            </footer>
+          </blockquote>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

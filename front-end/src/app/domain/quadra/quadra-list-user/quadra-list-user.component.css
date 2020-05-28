@@ -1,17 +1,64 @@
-.borda{
-    text-align: justify;
-    background: #FAFAFA;
-    border-radius: 20px;
-   
+.borda {
+  text-align: justify;
+  background: #fafafa;
+  border-radius: 20px;
 }
-nav{
-    margin-top: 3%;
-    margin-left: auto;
+nav {
+  margin-top: 3%;
+  margin-left: auto;
 }
-.col-10{
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
+.col-10 {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
 }
-.card{
-    width: 350px;
+.card {
+  width: 350px;
+}
+
+/* Aloooo - 1 x 0 pro CSS  |  Na mão > bootstrap*/
+
+.container-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 0;
+}
+
+.card-custom {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card-header-custom {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px 0px 5px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-body-custom {
+  padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
