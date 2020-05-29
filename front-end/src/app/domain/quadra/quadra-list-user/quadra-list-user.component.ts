@@ -16,7 +16,6 @@ export class QuadraListUserComponent implements OnInit{
     ngOnInit(){
         this.quadraService.findAll().subscribe(quadras =>{
             this.quadras = quadras;
-            console.log(this.quadras);
         })
     }
 }

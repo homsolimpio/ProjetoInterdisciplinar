@@ -11,12 +11,14 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { QuadraListUserComponent } from "./quadra-list-user/quadra-list-user.component";
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { QuadraReservaComponent } from "./quadra-reserva/quadra-reserva.component";
 
 @NgModule({
     declarations: [
         QuadraListComponent,
         QuadraFormComponent,
-        QuadraListUserComponent
+        QuadraListUserComponent,
+        QuadraReservaComponent
 
     ],
     imports: [

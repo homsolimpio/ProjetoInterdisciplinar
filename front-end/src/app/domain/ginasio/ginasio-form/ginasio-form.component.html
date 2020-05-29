@@ -100,7 +100,7 @@
               >
                 <option value="" disabled selected>Selecione...</option>
                 <option *ngFor="let cidade of cidades" [ngValue]="cidade"
-                  >{{ cidade.nome }}
+                  >{{ cidade.nome}}
                 </option>
               </select>
             </field>
@@ -130,4 +130,4 @@
   </div>
   <!-- fim panel-->
 </form>
-   <pre>{{ginasioForm.value | json}}</pre>    
+<pre>{{ginasioForm.value | json}}</pre>    

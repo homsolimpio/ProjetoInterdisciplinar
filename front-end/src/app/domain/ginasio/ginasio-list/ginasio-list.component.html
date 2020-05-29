@@ -1,34 +1,39 @@
-<div class="row">
 
-    <div class="titulo">
-      <h3 class="page-title">{{ titulo }}</h3>
-    </div>
-    <div class="ladoDireito">
-      <button routerLink="novo" type="button" class="btn btn-primary">+ Cadastro</button>
-    </div>
+
+<div class="row">
+  <div class="titulo">
+    <h3 class="page-title">{{ titulo }}</h3>
   </div>
-  
-  
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ginasio of ginasios">
-        <td>{{ ginasio.id }}</td>
-        <td>{{ ginasio.nome }}</td>
-        <td><button [routerLink]="['/ginasio/editar', ginasio.id]" type="button" class="btn btn-primary"><i
-              class="fas fa-pen"></i></button>
-          <button (click)="onDelete(ginasio.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div *ngIf="arrayVazio == true" class="col-md-12 text-center">
-    Não consta dados na tabela
+  <div class="ladoDireito">
+    <button routerLink="novo" type="button" class="btn btn-primary">+ Cadastro</button>
   </div>
+</div>
+  
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ginasio of ginasios">
+      <td>{{ ginasio.nome }}</td>
+      <td>{{ ginasio.endereco.estado.nome }}</td>
+      <td>{{ ginasio.endereco.cidade.nome }}</td>
+      <td>
+        <button [routerLink]="['/ginasio/editar', ginasio.id]" type="button" class="btn btn-primary edit">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button (click)="onDelete(ginasio.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="arrayVazio == true" class="col-md-12 text-center">
+  Não consta dados na tabela
+</div>

@@ -41,8 +41,6 @@ export class SigninComponent implements OnInit{
 
         this.loginService.findUserClienteByEmailAndSenha(email, senha)
         .subscribe(bool => {
-            console.log("boolean " + bool);
-            
             if(bool){
                 this.router.navigate(["/quadra/listar-quadras"]);
             }else{

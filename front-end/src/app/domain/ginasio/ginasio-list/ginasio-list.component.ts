@@ -18,7 +18,6 @@ export class GinasioListComponent implements OnInit{
     ngOnInit(){
         this.ginasioService.findAll().subscribe(ginasios =>{
             this.ginasios = ginasios;
-            console.log(this.ginasios);
             this.tabelaVazia(this.ginasios.length);
         })
     }

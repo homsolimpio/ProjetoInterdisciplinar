@@ -12,7 +12,6 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">id</th>
       <th scope="col">Nome</th>
       <th scope="col">Preço</th>
       <th scope="col">Tipo Quadra</th>
@@ -21,11 +20,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let quadra of quadras">
-      <td>{{ quadra.id }}</td>
       <td>{{ quadra.nome }}</td>
       <td>R$ {{ quadra.preco | number | valorMonetario}}</td>
       <td>{{ quadra.tipoQuadra.nome }}</td>
-      <td><button [routerLink]="['/quadra/editar', quadra.id]" type="button" class="btn btn-primary"><i
+      <td><button [routerLink]="['/quadra/editar', quadra.id]" type="button" class="btn btn-primary edit"><i
             class="fas fa-pen"></i></button>
         <button (click)="onDelete(quadra.id)" type="button" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
         </button>

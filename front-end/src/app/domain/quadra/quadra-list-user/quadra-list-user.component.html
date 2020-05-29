@@ -25,7 +25,7 @@
             <p>Bairro: {{ quadra.ginasio.endereco.bairro }}</p>
             <p>Valor Hora: ${{ quadra.preco | number | valorMonetario }}</p>
             <footer class="blockquote-footer--custom">
-              teste
+              <button [routerLink]="['/quadra/reserva', quadra.id]" class="btn btn-primary">Reserva</button>
             </footer>
           </blockquote>
         </div>
